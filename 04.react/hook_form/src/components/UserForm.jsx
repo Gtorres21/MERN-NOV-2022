@@ -9,7 +9,7 @@ const UserForm = (props) => {
     
     const createUser = (e) => {
         e.preventDefault();
-        const newUser = { firstName, email, password };
+        const newUser = { firstName,lastName, email, password, confirmPass };
         console.log("Welcome", newUser);
     };
     
