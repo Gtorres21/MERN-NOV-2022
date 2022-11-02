@@ -13,7 +13,7 @@ const Pokemon = () => {
             return res.json();
         })
         .then((res) => {
-            console.log(res.results)
+            console.log(res)
 
             setPokemon(res.results)
         })
