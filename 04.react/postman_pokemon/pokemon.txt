@@ -1,0 +1,10 @@
+1. https://pokeapi.co/api/v2/pokemon/bulbasaur
+
+
+2. https://pokeapi.co/api/v2/pokemon/4
+
+3. https://pokeapi.co/api/v2/pokemon/21
+
+4. https://pokeapi.co/api/v2/pokemon/weedle
+
+5. https://pokeapi.co/api/v2/pokemon/charizard
