@@ -4,6 +4,7 @@ import axios from 'axios';
 const Pokemon = () => {
 
     const [pokemon, setPokemon] = useState([])
+    
 
 
     // Axios
