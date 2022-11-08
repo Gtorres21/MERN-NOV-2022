@@ -10,7 +10,7 @@ const Display = (props) => {
 
 
     useEffect(() => {
-        axios.get("https://swapi.dev/api//"+ x +"/"+ y +"/")
+        axios.get("https://swapi.dev/api/"+ x +"/"+ y)
         .then((res) =>{
             console.log(res.data);
             setStarwars(res.data);

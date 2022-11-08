@@ -1,0 +1,49 @@
+use my_first_db
+
+switched to db my_first_db
+
+my_first_db> db.createCollection("students")
+
+my_first_db> show collections
+
+my_first_db>
+
+
+my_first_db> db.students.insertOne({name: "Cole Winchest", home_state: "KS", lucky_number: 9, birthday:{month:10, day: 10, year: 1998}})
+
+my_first_db> db.students.insertOne({name: "Yifan Qui", home_state:"NY", lucky_number: 3, birthday: {month: 2, day: 2, year: 1997}})
+
+my_first_db> db.students.insertOne({name: "Robert Wingard", home_state:"NV", lucky_number: 21, birthday: {month: 1, day: 1, year: 1700} })
+
+my_first_db> db.students.insertOne({name: "Giovanni Torres", home_state: "CA", lucky_number: 21, birthday:{montH: 6, day: 21, year: 1994}})
+
+my_first_db> db.students.insertOne({name: "John M", home_state:"EU", lucky_number: 4, birthday:{month: 2, day: 22, year: 0}})
+
+
+my_first_db> db.students.find()
+
+my_first_db> db.students.find({home_state: "CA"})
+
+my_first_db> db.students.find({lucky_number: {$gt: 3}})
+
+my_first_db> db.students.find({lucky_number: {$lte:10}})
+
+my_first_db> db.students.updateMany({}, {$set: {interests:['coding','brunch','MongoDB']}})
+
+ObjectId("63695aebecaacf169e5626c3
+
+my_first_db> db.students.updateOne({_id: ObjectId("63695aa7ecaacf169e5626c3")}, {$push: {interests: 'taxes'}})
+
+my_first_db> db.students.updateOne({_id: ObjectId("63695aa7ecaacf169e5626c1")}, {$pull:{interests:'taxes'}})
+
+my_first_db> db.students.deleteMany({home_state: 'CA'})
+
+my_first_db> db.students.deleteOne({name: 'Robert Wingard'})
+
+my_first_db> db.students.find()
+
+my_first_db> db.students.updateMany({numbers_of_belts:0}, {$set: {belts_earned: 0}})
+
+my_first_db> db.students.updateMany({},{$unset:{lucky_number: ""}})
+
+my_first_db> db.students.updateMany({}, {$currentDate:{dateModified:true}})
