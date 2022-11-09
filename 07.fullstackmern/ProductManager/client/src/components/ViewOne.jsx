@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React from 'react'
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 const ViewOne = (props) => {
+
+    const navigate = useNavigate();
 
     const {id} = useParams();
 
@@ -20,6 +22,25 @@ const ViewOne = (props) => {
         })
     },[id])
 
+    // go to update route
+    const goEdit = (productID) =>{
+        console.log(productID)
+        navigate(`/product/${productID}/edit`)
+    }
+
+    // Delete Route
+    const deleteProduct = (deleteID) => {
+        axios.delete(`http://localhost:8000/api/product/${deleteID}`)
+        .then(res => {
+            console.log("DELETE SUCCESS", res.data)
+            // Navigates to Home after successful delete
+            navigate('/')
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+
     return (
         <div>
             {
@@ -28,6 +49,8 @@ const ViewOne = (props) => {
                         {thisProduct.title}
                         <p>Price: ${thisProduct.price}</p>
                         <p>Description: {thisProduct.description}</p>
+                        <button onClick={()=> goEdit(thisProduct._id)}>Edit</button> 
+                        <button onClick={() => deleteProduct(thisProduct._id)}>Delete</button>
                     </div>
                 ):(
                     <p>loading</p>
